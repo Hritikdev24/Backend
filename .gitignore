@@ -1,0 +1,15 @@
+# Ignore node_modules folder
+node_modules/
+
+# Ignore environment files
+.env
+
+# Ignore package-lock.json (optional, if you don't want to track it)
+package-lock.json
+
+# Other common ignores
+.DS_Store       # macOS file
+*.log           # Log files
+*.env.*         # Other environment-specific files
+/build/         # Build folders
+/dist/          # Distribution folders
