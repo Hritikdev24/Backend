@@ -7,7 +7,11 @@ const cors = require("cors");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors({ 
+  origin: "*",
+  credentials:true
+
+ }));
 
 // Nodemailer configuration
 const transporter = nodemailer.createTransport({
@@ -20,14 +24,14 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-let connectDB; // Reusable database connection object
-let client; // MongoClient instance
+let connectDB; 
+let client; 
 
 const dbCon = async () => {
   try {
-    // Create a reusable connection only if it doesn't exist
+
     if (!client) {
-      client = new MongoClient("mongodb://localhost:27017/");
+      client = new MongoClient("mongodb+srv://hritikGangadhar:Hritik%4011@cluster0.rgkrs.mongodb.net/?retryWrites=true&w=majority");
       await client.connect();
       console.log("connected");
       const database = client.db("portfolio");
